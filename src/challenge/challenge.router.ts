@@ -72,17 +72,14 @@ codingChallengeRouter.get("/profitable-operation", async (req: Request, res: Res
     });    
 
     let mostProfitable = 0;
-    for (var i = 0; i < prices.length-1; i++) {
-      console.log("-----Price: " +  prices[i] + "-----");
-      console.log("mostProfitable: " + mostProfitable);
+    for (var i = 0; i < prices.length-1; i++) {      
       let profitableBuy = 0;
       for (var y = i+1; y < prices.length-1; y++) {        
         let profit = prices[y] - prices[i];
 
         if (profit >= 0 && profit > profitableBuy) {
           profitableBuy = profit;
-        }
-        console.log("Selling by " + prices[y] + " the profit is: " + profitableBuy);
+        }        
       }
       if (profitableBuy >= 0 && profitableBuy > mostProfitable) {
         mostProfitable = profitableBuy;
